@@ -1,4 +1,4 @@
-# User-RPC-Service
+# Product-RPC-Service
 
 ## Installation
 
@@ -12,7 +12,7 @@ Run unit test by spesific unit.
 ```bash
 Example:
 
-go test -run ^TestUserAdd$ github.com/private-project-pp/product-rpc-service/usecase/users_administration
+go test -run ^TestProductAdd$ github.com/private-project-pp/product-rpc-service/usecase/products_administration
 ```
 
 ## Usage
