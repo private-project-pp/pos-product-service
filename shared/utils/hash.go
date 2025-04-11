@@ -3,7 +3,7 @@ package utils
 import (
 	"github.com/private-project-pp/pos-general-lib/shared/utils"
 	"github.com/private-project-pp/pos-general-lib/stacktrace"
-	"github.com/private-project-pp/user-rpc-service/shared/config"
+	"github.com/private-project-pp/product-rpc-service/shared/config"
 )
 
 func GenerateHashedPassword(value string) (hashed string, err error) {
