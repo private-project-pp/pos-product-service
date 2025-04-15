@@ -26,9 +26,11 @@ func (s productAdm) AddingNewProduct(ctx context.Context, in *model.AddProductRe
 
 	for _, image := range in.GetImages() {
 		productImages = append(productImages, entity.ProductsImages{
-			SecureId: image.GetSecureId(),
-			FileName: image.GetFileName(),
-			FileType: image.GetFileType(),
+			SecureId:  image.GetSecureId(),
+			CreatedBy: metadata.GetUAuthUserId(ctx),
+			CreatedAt: utils.GetUtcTime(),
+			FileName:  image.GetFileName(),
+			FileType:  image.GetFileType(),
 		})
 	}
 
