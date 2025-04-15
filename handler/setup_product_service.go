@@ -5,15 +5,15 @@ import (
 	"github.com/private-project-pp/product-rpc-service/usecase/product_adm"
 )
 
-type userService struct {
-	userAdm product_adm.ProductAdministration
+type productService struct {
+	productAdm product_adm.ProductAdministration
 	model.UnimplementedProductServiceServer
 }
 
 func SetupProductService(
-	userAdm product_adm.ProductAdministration,
+	productAdm product_adm.ProductAdministration,
 ) model.ProductServiceServer {
-	return &userService{
-		userAdm: userAdm,
+	return &productService{
+		productAdm: productAdm,
 	}
 }

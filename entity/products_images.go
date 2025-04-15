@@ -11,6 +11,7 @@ type ProductsImages struct {
 	CreatedBy string    `gorm:"column:created_by"`
 	CreatedAt time.Time `gorm:"column:created_at"`
 	ProductId string    `gorm:"column:prodcut_id"`
+	FileName  string    `gorm:"column:file_name"`
 	FileType  string    `gorm:"column:file_type"`
 }
 

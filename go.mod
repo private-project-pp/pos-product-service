@@ -6,11 +6,11 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/lib/pq v1.10.9
 	github.com/private-project-pp/pos-general-lib v0.0.0-20250401160700-875a2841efa1
-	github.com/private-project-pp/pos-grpc-contract v0.0.0-20250411084951-45205591c5c2
+	github.com/private-project-pp/pos-grpc-contract v0.0.0-20250415084024-ed823a339183
 	github.com/private-project-pp/user-rpc-service v0.0.0-20250408055544-7fce62e779f1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.10.0
-	go.uber.org/mock v0.5.0
+	go.uber.org/mock v0.5.1
 	google.golang.org/grpc v1.71.1
 	gorm.io/driver/postgres v1.5.9
 	gorm.io/gorm v1.25.11
@@ -82,7 +82,7 @@ require (
 	golang.org/x/sync v0.13.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
 	golang.org/x/text v0.24.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250409194420-de1ac958c67a // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250414145226-207652e42e2e // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
