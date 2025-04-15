@@ -15,6 +15,9 @@ spes-test:
 
 gen-mock-all: gen-mock-repo
 
+gen-mock-uc:
+	
+
 gen-mock-repo:
 	cmd/generate_mocked_repo.sh
 

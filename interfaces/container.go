@@ -38,9 +38,10 @@ func Container() (err error) {
 
 	// setup repository
 	productsRepo := postgre.SetupProductsRepo(db)
+	productUnitRepo := postgre.SetupProductUnitRepo(db)
 
 	// setup usecase
-	productAdministration := product_adm.SetupProductAdministration(productsRepo)
+	productAdministration := product_adm.SetupProductAdministration(productsRepo, productUnitRepo)
 
 	//setup RPC handler
 	rpcHandler := handler.SetupProductService(productAdministration)
