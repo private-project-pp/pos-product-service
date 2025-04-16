@@ -14,6 +14,7 @@ import (
 
 	entity "github.com/private-project-pp/product-rpc-service/entity"
 	gomock "go.uber.org/mock/gomock"
+	gorm "gorm.io/gorm"
 )
 
 // MockProduct is a mock of Product interface.
@@ -41,29 +42,29 @@ func (m *MockProduct) EXPECT() *MockProductMockRecorder {
 }
 
 // AddProduct mocks base method.
-func (m *MockProduct) AddProduct(in entity.Product) error {
+func (m *MockProduct) AddProduct(tx *gorm.DB, in entity.Product) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddProduct", in)
+	ret := m.ctrl.Call(m, "AddProduct", tx, in)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // AddProduct indicates an expected call of AddProduct.
-func (mr *MockProductMockRecorder) AddProduct(in any) *gomock.Call {
+func (mr *MockProductMockRecorder) AddProduct(tx, in any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddProduct", reflect.TypeOf((*MockProduct)(nil).AddProduct), in)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddProduct", reflect.TypeOf((*MockProduct)(nil).AddProduct), tx, in)
 }
 
 // BulkAddProductImages mocks base method.
-func (m *MockProduct) BulkAddProductImages(in []entity.ProductsImages) error {
+func (m *MockProduct) BulkAddProductImages(tx *gorm.DB, in []entity.ProductsImages) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "BulkAddProductImages", in)
+	ret := m.ctrl.Call(m, "BulkAddProductImages", tx, in)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // BulkAddProductImages indicates an expected call of BulkAddProductImages.
-func (mr *MockProductMockRecorder) BulkAddProductImages(in any) *gomock.Call {
+func (mr *MockProductMockRecorder) BulkAddProductImages(tx, in any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BulkAddProductImages", reflect.TypeOf((*MockProduct)(nil).BulkAddProductImages), in)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BulkAddProductImages", reflect.TypeOf((*MockProduct)(nil).BulkAddProductImages), tx, in)
 }

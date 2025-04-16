@@ -41,6 +41,21 @@ func (m *MockProductAdministration) EXPECT() *MockProductAdministrationMockRecor
 	return m.recorder
 }
 
+// AddNewProductIntoWarehouse mocks base method.
+func (m *MockProductAdministration) AddNewProductIntoWarehouse(ctx context.Context, in *product_service.UpsertProductWarehouseRequest) (string, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddNewProductIntoWarehouse", ctx, in)
+	ret0, _ := ret[0].(string)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// AddNewProductIntoWarehouse indicates an expected call of AddNewProductIntoWarehouse.
+func (mr *MockProductAdministrationMockRecorder) AddNewProductIntoWarehouse(ctx, in any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNewProductIntoWarehouse", reflect.TypeOf((*MockProductAdministration)(nil).AddNewProductIntoWarehouse), ctx, in)
+}
+
 // AddNewProductUnit mocks base method.
 func (m *MockProductAdministration) AddNewProductUnit(ctx context.Context, in *product_service.UpsertUnitRequest) (string, error) {
 	m.ctrl.T.Helper()
@@ -71,6 +86,20 @@ func (mr *MockProductAdministrationMockRecorder) AddingNewProduct(ctx, in any) *
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddingNewProduct", reflect.TypeOf((*MockProductAdministration)(nil).AddingNewProduct), ctx, in)
 }
 
+// UpdateExistingProductInWarehouse mocks base method.
+func (m *MockProductAdministration) UpdateExistingProductInWarehouse(ctx context.Context, in *product_service.UpsertProductWarehouseRequest) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpdateExistingProductInWarehouse", ctx, in)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// UpdateExistingProductInWarehouse indicates an expected call of UpdateExistingProductInWarehouse.
+func (mr *MockProductAdministrationMockRecorder) UpdateExistingProductInWarehouse(ctx, in any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateExistingProductInWarehouse", reflect.TypeOf((*MockProductAdministration)(nil).UpdateExistingProductInWarehouse), ctx, in)
+}
+
 // UpdateExistingUnit mocks base method.
 func (m *MockProductAdministration) UpdateExistingUnit(in *product_service.UpsertUnitRequest) error {
 	m.ctrl.T.Helper()
@@ -83,6 +112,21 @@ func (m *MockProductAdministration) UpdateExistingUnit(in *product_service.Upser
 func (mr *MockProductAdministrationMockRecorder) UpdateExistingUnit(in any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateExistingUnit", reflect.TypeOf((*MockProductAdministration)(nil).UpdateExistingUnit), in)
+}
+
+// UpsertProductIntoWarehouse mocks base method.
+func (m *MockProductAdministration) UpsertProductIntoWarehouse(ctx context.Context, in *product_service.UpsertProductWarehouseRequest) (*product_service.UpsertProductWarehouseResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpsertProductIntoWarehouse", ctx, in)
+	ret0, _ := ret[0].(*product_service.UpsertProductWarehouseResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UpsertProductIntoWarehouse indicates an expected call of UpsertProductIntoWarehouse.
+func (mr *MockProductAdministrationMockRecorder) UpsertProductIntoWarehouse(ctx, in any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpsertProductIntoWarehouse", reflect.TypeOf((*MockProductAdministration)(nil).UpsertProductIntoWarehouse), ctx, in)
 }
 
 // UpsertUnit mocks base method.

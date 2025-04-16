@@ -6,9 +6,10 @@ import (
 )
 
 type productAdm struct {
-	productRepo     domain.Product
-	productUnitRepo domain.ProductUnit
-	dbTx            *gorm.DB
+	productRepo      domain.Product
+	productUnitRepo  domain.ProductUnit
+	dbTx             *gorm.DB
+	productWarehouse domain.ProductWarehouse
 }
 
 func SetupProductAdministration(

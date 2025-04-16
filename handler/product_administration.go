@@ -22,3 +22,11 @@ func (u productService) UpsertUnit(ctx context.Context, in *model.UpsertUnitRequ
 	}
 	return out, nil
 }
+
+func (u productService) UpsertProductWarehouse(ctx context.Context, in *model.UpsertProductWarehouseRequest) (out *model.UpsertProductWarehouseResponse, err error) {
+	out, err = u.productAdm.UpsertProductIntoWarehouse(ctx, in)
+	if err != nil {
+		return nil, stacktrace.Cascade(err, stacktrace.INTERNAL_SERVER_ERROR, err.Error())
+	}
+	return out, nil
+}

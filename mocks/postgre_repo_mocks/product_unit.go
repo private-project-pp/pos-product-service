@@ -69,6 +69,21 @@ func (mr *MockProductUnitMockRecorder) GetProductUnitById(in any) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetProductUnitById", reflect.TypeOf((*MockProductUnit)(nil).GetProductUnitById), in)
 }
 
+// GetProductUnitByProductAndUnitId mocks base method.
+func (m *MockProductUnit) GetProductUnitByProductAndUnitId(productId, unitId, olderUnitId string) (entity.ProductsUnitComparator, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetProductUnitByProductAndUnitId", productId, unitId, olderUnitId)
+	ret0, _ := ret[0].(entity.ProductsUnitComparator)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetProductUnitByProductAndUnitId indicates an expected call of GetProductUnitByProductAndUnitId.
+func (mr *MockProductUnitMockRecorder) GetProductUnitByProductAndUnitId(productId, unitId, olderUnitId any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetProductUnitByProductAndUnitId", reflect.TypeOf((*MockProductUnit)(nil).GetProductUnitByProductAndUnitId), productId, unitId, olderUnitId)
+}
+
 // UpdateProductUnit mocks base method.
 func (m *MockProductUnit) UpdateProductUnit(in entity.UnitOfMeasuremnet) error {
 	m.ctrl.T.Helper()
