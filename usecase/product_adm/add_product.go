@@ -34,13 +34,21 @@ func (s productAdm) AddingNewProduct(ctx context.Context, in *model.AddProductRe
 		})
 	}
 
-	err = s.productRepo.AddProduct(product)
+	dbTrans := s.dbTx.Begin()
+	err = s.productRepo.AddProduct(dbTrans, product)
 	if err != nil {
+		dbTrans.Rollback()
 		return nil, stacktrace.Cascade(err, stacktrace.INTERNAL_SERVER_ERROR, err.Error())
 	}
 
-	err = s.productRepo.BulkAddProductImages(productImages)
+	err = s.productRepo.BulkAddProductImages(dbTrans, productImages)
 	if err != nil {
+		dbTrans.Rollback()
+		return nil, stacktrace.Cascade(err, stacktrace.INTERNAL_SERVER_ERROR, err.Error())
+	}
+
+	if err = dbTrans.Commit().Error; err != nil {
+		dbTrans.Rollback()
 		return nil, stacktrace.Cascade(err, stacktrace.INTERNAL_SERVER_ERROR, err.Error())
 	}
 
