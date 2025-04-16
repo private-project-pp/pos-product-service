@@ -8,7 +8,7 @@ import (
 	"github.com/private-project-pp/pos-general-lib/logger"
 	model "github.com/private-project-pp/pos-grpc-contract/model/product_service"
 	"github.com/private-project-pp/product-rpc-service/handler"
-	"github.com/private-project-pp/product-rpc-service/repository/postgre"
+	"github.com/private-project-pp/product-rpc-service/infrastructures/postgre"
 	"github.com/private-project-pp/product-rpc-service/shared/config"
 	"github.com/private-project-pp/product-rpc-service/usecase/product_adm"
 	"google.golang.org/grpc/reflection"
@@ -36,12 +36,13 @@ func Container() (err error) {
 	server := infrastructure.GrpcInstanceServer(logging, mwConn)
 	reflection.Register(server)
 
-	// setup repository
+	// setup infrastructures
 	productsRepo := postgre.SetupProductsRepo(db)
 	productUnitRepo := postgre.SetupProductUnitRepo(db)
+	productWarehouseRepo := postgre.SetupProductWarehouseRepository(db)
 
 	// setup usecase
-	productAdministration := product_adm.SetupProductAdministration(productsRepo, productUnitRepo)
+	productAdministration := product_adm.SetupProductAdministration(productsRepo, productUnitRepo, db, productWarehouseRepo)
 
 	//setup RPC handler
 	rpcHandler := handler.SetupProductService(productAdministration)

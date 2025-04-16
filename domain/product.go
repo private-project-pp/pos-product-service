@@ -1,8 +1,11 @@
 package domain
 
-import "github.com/private-project-pp/product-rpc-service/entity"
+import (
+	"github.com/private-project-pp/product-rpc-service/entity"
+	"gorm.io/gorm"
+)
 
 type Product interface {
-	AddProduct(in entity.Product) (err error)
-	BulkAddProductImages(in []entity.ProductsImages) (err error)
+	AddProduct(tx *gorm.DB, in entity.Product) (err error)
+	BulkAddProductImages(tx *gorm.DB, in []entity.ProductsImages) (err error)
 }

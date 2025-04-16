@@ -1,18 +1,27 @@
 package product_adm
 
-import "github.com/private-project-pp/product-rpc-service/domain"
+import (
+	"github.com/private-project-pp/product-rpc-service/domain"
+	"gorm.io/gorm"
+)
 
 type productAdm struct {
-	productRepo     domain.Product
-	productUnitRepo domain.ProductUnit
+	productRepo      domain.Product
+	productUnitRepo  domain.ProductUnit
+	dbTx             *gorm.DB
+	productWarehouse domain.ProductWarehouse
 }
 
 func SetupProductAdministration(
 	productRepo domain.Product,
 	productUnitRepo domain.ProductUnit,
+	dbTx *gorm.DB,
+	productWarehouse domain.ProductWarehouse,
 ) ProductAdministration {
 	return &productAdm{
-		productRepo:     productRepo,
-		productUnitRepo: productUnitRepo,
+		productRepo:      productRepo,
+		productUnitRepo:  productUnitRepo,
+		dbTx:             dbTx,
+		productWarehouse: productWarehouse,
 	}
 }

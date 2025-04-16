@@ -48,3 +48,15 @@ func (r *productUnitRepo) UpdateProductUnit(in entity.UnitOfMeasuremnet) (err er
 	return nil
 
 }
+
+func (r *productUnitRepo) GetProductUnitByProductAndUnitId(productId, unitId, olderUnitId string) (out entity.ProductsUnitComparator, err error) {
+	cond := "product_id = ? AND ((unit_id = ? AND smaller_unit_id = ?) OR (smaller_unit_id = ? AND unit_id ?))"
+	err = r.db.Where(cond, productId, unitId, olderUnitId, olderUnitId, unitId).Scan(&out).Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return out, stacktrace.Cascade(err, stacktrace.DATA_NOT_FOUND, err.Error())
+		}
+		return out, stacktrace.Cascade(err, stacktrace.INTERNAL_SERVER_ERROR, err.Error())
+	}
+	return out, nil
+}
