@@ -16,10 +16,12 @@ func SetupProductAdministration(
 	productRepo domain.Product,
 	productUnitRepo domain.ProductUnit,
 	dbTx *gorm.DB,
+	productWarehouse domain.ProductWarehouse,
 ) ProductAdministration {
 	return &productAdm{
-		productRepo:     productRepo,
-		productUnitRepo: productUnitRepo,
-		dbTx:            dbTx,
+		productRepo:      productRepo,
+		productUnitRepo:  productUnitRepo,
+		dbTx:             dbTx,
+		productWarehouse: productWarehouse,
 	}
 }
