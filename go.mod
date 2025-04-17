@@ -7,7 +7,6 @@ require (
 	github.com/lib/pq v1.10.9
 	github.com/private-project-pp/pos-general-lib v0.0.0-20250401160700-875a2841efa1
 	github.com/private-project-pp/pos-grpc-contract v0.0.0-20250415084024-ed823a339183
-	github.com/private-project-pp/user-rpc-service v0.0.0-20250408055544-7fce62e779f1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.10.0
 	go.uber.org/mock v0.5.1
@@ -18,6 +17,7 @@ require (
 
 require (
 	github.com/99designs/gqlgen v0.17.66 // indirect
+	github.com/DATA-DOG/go-sqlmock v1.5.2 // indirect
 	github.com/agnivade/levenshtein v1.2.0 // indirect
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
